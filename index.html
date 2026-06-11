@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Atlas Call | Luxury Expeditions</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="aurora-bg">
+        <div class="blob azure-blob"></div>
+        <div class="blob lavender-blob"></div>
+    </div>
+
+    <main class="container">
+        <section id="hero-section" class="glass-panel active-section">
+            <h1>The Atlas Call</h1>
+            <p>Surrender to chance. Discover your next great expedition.</p>
+            <button id="start-btn" class="luxury-btn">Begin the Oracle</button>
+        </section>
+
+        <section id="quiz-section" class="glass-panel hidden-section">
+            <h2 id="question-text">Question goes here</h2>
+            <div id="options-container" class="options-grid">
+                </div>
+        </section>
+
+        <section id="loading-section" class="glass-panel hidden-section">
+            <div class="spinner"></div>
+            <p id="loading-text" class="loading-text">Initializing oracle sequence...</p>
+        </section>
+
+        <section id="result-section" class="glass-panel hidden-section">
+            <p class="pre-title">Your destined path is...</p>
+            <h1 id="result-location">Kedarkantha</h1>
+            
+            <div class="result-details">
+                <span id="result-duration" class="badge">5D</span>
+                <span id="result-difficulty" class="badge">EM</span>
+            </div>
+
+            <div class="cat-container">
+                <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Sarcastic Cat" class="sarcastic-cat">
+                <p id="cat-message" class="cat-text">Wow. You clicked a button. The universe is truly in awe.</p>
+            </div>
+
+            <button id="restart-btn" class="luxury-btn outline">Cast Again</button>
+        </section>
+    </main>
+
+    <footer class="legend-footer">
+        <span><strong>Legend:</strong></span>
+        <span><strong>E</strong> = Easy</span> |
+        <span><strong>M</strong> = Moderate</span> |
+        <span><strong>H</strong> = Hard</span> |
+        <span><strong>EM</strong> = Easy-Moderate</span> |
+        <span><strong>Exp</strong> = Expedition</span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

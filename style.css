@@ -1,0 +1,258 @@
+/* style.css */
+:root {
+    --midnight: #080c16;
+    --azure: #007fff;
+    --lavender: #e6e6fa;
+    --text-main: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.6);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--midnight);
+    color: var(--text-main);
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h2 {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
+}
+
+/* Aurora Background Animation */
+.aurora-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.5;
+    animation: drift 15s infinite alternate ease-in-out;
+}
+
+.azure-blob {
+    width: 600px; height: 600px;
+    background: var(--azure);
+    top: -10%; left: -10%;
+}
+
+.lavender-blob {
+    width: 500px; height: 500px;
+    background: var(--lavender);
+    bottom: -10%; right: -10%;
+    animation-delay: -5s;
+}
+
+@keyframes drift {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(10vw, 10vh) scale(1.2); }
+}
+
+/* Glassmorphism Panels */
+.container {
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    z-index: 10;
+}
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 60px 40px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Section Visibility */
+.hidden-section {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    position: absolute;
+    top: 0; left: 0; right: 0;
+}
+
+.active-section {
+    opacity: 1;
+    transform: translateY(0);
+    position: relative;
+    pointer-events: all;
+}
+
+/* Typography & Buttons */
+.glass-panel h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.glass-panel p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+.pre-title {
+    margin-bottom: 15px !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem !important;
+}
+
+.luxury-btn {
+    background: linear-gradient(45deg, var(--azure), #0056b3);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.luxury-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 127, 255, 0.3);
+}
+
+.luxury-btn.outline {
+    background: transparent;
+    border: 1px solid var(--lavender);
+    color: var(--lavender);
+}
+
+/* Quiz Grid */
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.option-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+}
+
+.option-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--azure);
+    transform: scale(1.02);
+}
+
+/* Results & Loading */
+.badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(230, 230, 250, 0.1);
+    color: var(--lavender);
+    margin: 10px 5px 15px;
+    font-weight: 600;
+    border: 1px solid rgba(230, 230, 250, 0.2);
+}
+
+.spinner {
+    width: 60px; height: 60px;
+    border: 2px solid transparent;
+    border-top-color: var(--azure);
+    border-bottom-color: var(--lavender);
+    border-radius: 50%;
+    animation: spin 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+    margin: 0 auto 30px;
+}
+
+#loading-text {
+    transition: opacity 0.5s ease;
+    min-height: 30px; 
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
+    color: var(--azure);
+    font-size: 1.2rem;
+}
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* Legend Footer */
+.legend-footer {
+    position: fixed;
+    bottom: 20px;
+    background: rgba(8, 12, 22, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 24px;
+    border-radius: 30px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    z-index: 5;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.legend-footer strong {
+    color: var(--lavender);
+}
+
+/* Sarcastic Cat Styling */
+.cat-container {
+    margin: 10px 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sarcastic-cat {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.sarcastic-cat:hover {
+    transform: rotate(5deg) scale(1.05);
+}
+
+.cat-text {
+    font-style: italic;
+    color: var(--azure) !important;
+    font-size: 0.95rem !important;
+    max-width: 80%;
+    margin: 0 auto !important;
+}
